@@ -137,7 +137,13 @@ public class MiListaCircular implements ListInterface{
 
     @Override
     public boolean insert(Object objectRef, Object object) {
-        return false;
+        Node nodo = search(objectRef);
+
+        if (nodo == null) {
+            return false;
+        }
+
+        return insert(nodo, object);
     }
 
     @Override

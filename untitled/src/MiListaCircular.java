@@ -334,10 +334,35 @@ public class MiListaCircular implements ListInterface{
 
         return nuevaLista;
     }
-    
+
 
     @Override
     public MiListaCircular sortList() {
-        return null;
+
+        Object[] array = toArray();
+
+        for (int i = 0; i < array.length - 1; i++) {
+
+            for (int j = 0; j < array.length - 1 - i; j++) {
+
+                Integer a = (Integer) array[j];
+                Integer b = (Integer) array[j + 1];
+
+                if (a > b) {
+
+                    Object temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+
+        MiListaCircular nuevaLista = new MiListaCircular();
+
+        for (Object elemento : array) {
+            nuevaLista.add(elemento);
+        }
+
+        return nuevaLista;
     }
 }

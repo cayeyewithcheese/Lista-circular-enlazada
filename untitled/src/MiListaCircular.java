@@ -23,6 +23,10 @@ public class MiListaCircular implements ListInterface{
 
     @Override
     public void clear() {
+        head = null;
+        tail = null;
+        size = 0;
+
 
     }
 

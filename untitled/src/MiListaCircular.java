@@ -311,8 +311,30 @@ public class MiListaCircular implements ListInterface{
 
     @Override
     public MiListaCircular subList(Node from, Node to) {
-        return null;
+
+        MiListaCircular nuevaLista = new MiListaCircular();
+
+        if (from == null || to == null || head == null) {
+            return nuevaLista;
+        }
+
+        Node actual = from;
+
+        do {
+
+            nuevaLista.add(actual.dato);
+
+            if (actual == to) {
+                return nuevaLista;
+            }
+
+            actual = actual.siguiente;
+
+        } while (actual != head);
+
+        return nuevaLista;
     }
+    
 
     @Override
     public MiListaCircular sortList() {

@@ -172,7 +172,7 @@ public class MiListaCircular implements ListInterface{
 
     @Override
     public boolean insertTail(Object object) {
-        return false;
+        return add(object);
     }
 
     @Override

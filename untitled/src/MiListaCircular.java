@@ -49,7 +49,11 @@ public class MiListaCircular implements ListInterface{
 
     @Override
     public Object get(Node node) {
-        return null;
+        if (node == null) {
+            return null;
+        }
+
+        return node.dato;
     }
 
     @Override

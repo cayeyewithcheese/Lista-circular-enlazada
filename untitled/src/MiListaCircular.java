@@ -148,7 +148,26 @@ public class MiListaCircular implements ListInterface{
 
     @Override
     public boolean insertHead(Object object) {
-        return false;
+        Node nuevo = new Node(object);
+
+        if (head == null) {
+
+            head = nuevo;
+            tail = nuevo;
+
+            tail.siguiente = head;
+
+        } else {
+
+            nuevo.siguiente = head;
+            head = nuevo;
+
+            tail.siguiente = head;
+        }
+
+        size++;
+
+        return true;
     }
 
     @Override

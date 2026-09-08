@@ -199,6 +199,56 @@ public class MiListaCircular implements ListInterface{
 
     @Override
     public boolean remove(Node node) {
+        if (node == null || head == null) {
+            return false;
+        }
+
+        if (head == tail) {
+
+            if (node == head) {
+                head = null;
+                tail = null;
+                size--;
+
+                return true;
+            }
+
+            return false;
+        }
+        
+        if (node == head) {
+
+            head = head.siguiente;
+            tail.siguiente = head;
+
+            size--;
+
+            return true;
+        }
+
+        Node anterior = head;
+        Node actual = head.siguiente;
+
+        while (actual != head) {
+
+            if (actual == node) {
+
+                anterior.siguiente = actual.siguiente;
+
+                if (actual == tail) {
+                    tail = anterior;
+                    tail.siguiente = head;
+                }
+
+                size--;
+
+                return true;
+            }
+
+            anterior = actual;
+            actual = actual.siguiente;
+        }
+
         return false;
     }
 

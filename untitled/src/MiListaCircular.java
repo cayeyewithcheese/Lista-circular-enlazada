@@ -177,6 +177,23 @@ public class MiListaCircular implements ListInterface{
 
     @Override
     public boolean set(Node node, Object object) {
+        if (node == null || head == null) {
+            return false;
+        }
+
+        Node actual = head;
+
+        do {
+
+            if (actual == node) {
+                node.dato = object;
+                return true;
+            }
+
+            actual = actual.siguiente;
+
+        } while (actual != head);
+
         return false;
     }
 

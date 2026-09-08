@@ -40,7 +40,11 @@ public class MiListaCircular implements ListInterface{
 
     @Override
     public Object getTail() {
-        return null;
+        if (tail == null) {
+            return null;
+        }
+
+        return tail.dato;
     }
 
     @Override

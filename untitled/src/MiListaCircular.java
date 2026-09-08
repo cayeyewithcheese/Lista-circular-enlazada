@@ -74,12 +74,30 @@ public class MiListaCircular implements ListInterface{
         } while (actual != head);
 
         return null;
-       
+
     }
 
     @Override
     public boolean add(Object object) {
-        return false;
+        Node nuevo = new Node(object);
+
+        if (head == null) {
+
+            head = nuevo;
+            tail = nuevo;
+
+            tail.siguiente = head;
+
+        } else {
+
+            nuevo.siguiente = head;
+            tail.siguiente = nuevo;
+            tail = nuevo;
+        }
+
+        size++;
+
+        return true;
     }
 
     @Override

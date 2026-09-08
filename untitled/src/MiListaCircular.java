@@ -215,7 +215,7 @@ public class MiListaCircular implements ListInterface{
 
             return false;
         }
-        
+
         if (node == head) {
 
             head = head.siguiente;
@@ -254,7 +254,7 @@ public class MiListaCircular implements ListInterface{
 
     @Override
     public boolean contains(Object object) {
-        return false;
+        return search(object) != null;
     }
 
     @Override

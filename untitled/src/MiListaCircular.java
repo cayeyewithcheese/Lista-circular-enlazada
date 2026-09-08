@@ -259,7 +259,25 @@ public class MiListaCircular implements ListInterface{
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        Object[] array = new Object[size];
+
+        if (head == null) {
+            return array;
+        }
+
+        Node actual = head;
+        int i = 0;
+
+        do {
+
+            array[i] = actual.dato;
+            i++;
+
+            actual = actual.siguiente;
+
+        } while (actual != head);
+
+        return array;
     }
 
     @Override
